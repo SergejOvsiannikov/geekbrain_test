@@ -6,7 +6,7 @@ ActiveAdmin.register_page "Dashboard" do
     columns do
       column do
         panel "Students" do
-          table_for Student.includes(groups: :course) do
+          table_for Student.w_groups_courses do
             column(:email)
             column(:groups) do |student|
               ul do

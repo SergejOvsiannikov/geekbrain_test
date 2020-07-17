@@ -7,4 +7,6 @@ class Student < ApplicationRecord
   validates :email, presence: true,
                     uniqueness: true,
                     format: { with: EMAIL_VALIDATION_REGEXP }
+
+  scope :w_groups_courses, -> { includes(groups: :course) }
 end

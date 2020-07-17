@@ -6,7 +6,7 @@ module Groups
       end
 
       def call
-        base_scope.ordered_by_date
+        base_scope.w_course.ordered_by_date
       end
 
       private

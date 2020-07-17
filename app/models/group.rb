@@ -6,4 +6,5 @@ class Group < ApplicationRecord
 
   scope :active, -> { where('start_date > ?', Time.now) }
   scope :ordered_by_date, -> { order(start_date: :asc) }
+  scope :w_course, -> { includes(:course) }
 end
