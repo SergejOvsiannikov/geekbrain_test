@@ -1,7 +1,8 @@
 module ApplicationHelper
   def sortable(column, title = nil)
     title ||= column.titleize
-    direction = (params.dig(:sort, column) == "asc") ? "desc" : "asc"
-    link_to title, sort: { column.parameterize.underscore => direction }
+    param = column.parameterize.underscore
+    direction = (params.dig(:sort, param) == "asc") ? "desc" : "asc"
+    link_to title, sort: { param => direction }
   end
 end
