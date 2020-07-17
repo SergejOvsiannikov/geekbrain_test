@@ -1,5 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe StudentsGroup, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe StudentsGroup, type: :model do
+  it { is_expected.to belong_to(:student) }
+  it { is_expected.to belong_to(:group) }
 end
