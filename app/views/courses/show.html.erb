@@ -1,0 +1,24 @@
+<h2>Course page</h2>
+<div>
+  <%= link_to 'Courses list', courses_path %>
+</div>
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Students</th>
+    <th></th>
+  </tr>
+
+  <% @groups.each do |group| %>
+    <tr>
+      <td><%= group.start_date %></td>
+      <td><%= group.students_count %></td>
+      <td>
+        <%= form_tag(course_group_student_registration_path(group.course, group), method: :post) do |f| %>
+          <div><%= text_field_tag 'student[email]' %></div>
+          <div><%= submit_tag 'Join' %></div>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

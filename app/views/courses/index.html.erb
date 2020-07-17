@@ -1,0 +1,16 @@
+<h2>Courses list</h2>
+<table>
+  <tr>
+    <th>Name</th>
+    <th><%= sortable "nearest lesson" %></th>
+    <th></th>
+  </tr>
+
+  <% @courses.each do |course| %>
+    <tr>
+      <td><%= course.name %></td>
+      <td><%= course.nearest_start_date %></td>
+      <td><%= link_to "groups", course_path(course)%></td>
+    </tr>
+  <% end %>
+</table>
