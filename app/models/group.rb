@@ -4,7 +4,7 @@ class Group < ApplicationRecord
 
   belongs_to :course
 
-  scope :active, -> { where('start_date > ?', Time.now) }
   scope :ordered_by_date, -> { order(start_date: :asc) }
   scope :w_course, -> { includes(:course) }
+  scope :active, -> { where('start_date > ?', Time.now) }
 end

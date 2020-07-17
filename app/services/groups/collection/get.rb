@@ -12,7 +12,7 @@ module Groups
       private
 
       def base_scope
-        @course.present? ? @course.active_groups : Group.active
+        @course.active_groups
       end
     end
   end
