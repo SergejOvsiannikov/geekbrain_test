@@ -12,7 +12,7 @@
   <% @groups.each do |group| %>
     <tr>
       <td><%= group.start_date %></td>
-      <td><%= group.students_count %></td>
+      <td><%= group.students.map(&:email).join(', ') %></td>
       <td>
         <%= form_tag(course_group_student_registration_path(group.course, group), method: :post) do |f| %>
           <div><%= text_field_tag 'student[email]' %></div>

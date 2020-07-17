@@ -3,6 +3,7 @@
   <tr>
     <th>Name</th>
     <th><%= sortable "nearest lesson" %></th>
+    <th>Students count</th>
     <th></th>
   </tr>
 
@@ -10,6 +11,7 @@
     <tr>
       <td><%= course.name %></td>
       <td><%= course.nearest_start_date %></td>
+      <td><%= course.nearest_students_count %></td>
       <td><%= link_to "groups", course_path(course)%></td>
     </tr>
   <% end %>

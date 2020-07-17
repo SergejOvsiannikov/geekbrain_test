@@ -6,13 +6,13 @@ module Groups
       end
 
       def call
-        base_scope.w_course.ordered_by_date
+        base_scope.ordered_by_date
       end
 
       private
 
       def base_scope
-        @course.active_groups
+        @course.active_groups.w_students.w_course
       end
     end
   end

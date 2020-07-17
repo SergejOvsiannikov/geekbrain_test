@@ -4,7 +4,10 @@ class Course < ApplicationRecord
 
   scope :w_closest_date, -> {
                                select("(array_agg(groups.start_date ORDER BY start_date ASC))[1]
-                                        as nearest_start_date, courses.*").
+                                        as nearest_start_date,
+                                        (array_agg(groups.students_count ORDER BY start_date ASC))[1]
+                                        as nearest_students_count,
+                                        courses.*").
                                left_joins(:groups).
                                where('groups.start_date > ? OR groups.id is NULL', Time.now).
                                group('courses.id')
